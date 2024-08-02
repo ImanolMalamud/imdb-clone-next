@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Results from "../../../components/Results";
 const API_KEY = process.env.API_KEY;
 
@@ -11,12 +12,14 @@ export default async function SearchPage({ params }) {
 
   return (
     <div>
-      {results && results.length === 0 ? (
-        <h1 className="text-center pt-6">No results found</h1>
-      ) : (
-        ""
-      )}
-      {results && <Results results={results} />}
+      <Suspense>
+        {results && results.length === 0 ? (
+          <h1 className="text-center pt-6">No results found</h1>
+        ) : (
+          ""
+        )}
+        {results && <Results results={results} />}
+      </Suspense>
     </div>
   );
 }
