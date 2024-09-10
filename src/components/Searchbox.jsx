@@ -15,20 +15,22 @@ export default function Searchbox() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between px-3 max-w-6xl mx-auto"
+      className="flex items-center justify-end max-w-6xl mx-auto px-3 pt-6"
     >
-      <input
-        type="text"
-        placeholder="Search keywords..."
-        className="w-full h-14 rounded-md placeholder-gray-500 outline-none bg-transparent flex-1"
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button
-        className="text-amber-600 disabled:text-gray-400"
-        disabled={search === ""}
-      >
-        Search
-      </button>
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          placeholder="Search keywords..."
+          className="h-10 w-48 rounded-md placeholder-gray-500 outline-none bg-transparent"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button
+          className="text-amber-600 disabled:text-gray-400"
+          disabled={search === ""}
+        >
+          Search
+        </button>
+      </div>
     </form>
   );
 }
